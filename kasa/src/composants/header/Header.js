@@ -8,7 +8,7 @@ export default function Header() {
             <nav className='nav'>
                 <ul>
                     <li>
-                        <Link to='/Kasa/'> Accueil </Link>
+                        <Link to='/'> Accueil </Link>
                     </li>
                     <li>
                         <Link to='/About'> A propos </Link>
