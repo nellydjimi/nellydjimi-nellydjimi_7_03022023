@@ -4,8 +4,9 @@ import Banner from '../../composants/banner/Banner'
 import Collapse from '../../composants/collapse/Collapse'
 import '../About/about.scss'
 
-export default function About () {
 
+const About = () => {
+    
     const aboutList = [
         {
             "keys" : "1",
@@ -29,21 +30,14 @@ export default function About () {
         }
     ]
 return (
+   
  <div>
     <Header />
     <Banner />
-    <div className='about'>
-        {aboutList.map( list =>{
-            return (
-                <div key={list.keys} className='aboutCollapse'> 
-                    <Collapse title={list.title} content={list.content}></Collapse>
-                </div>
-            )
-        }
-
-)}
-    </div>
+   
     <Footer />
  </div>
 )
 }
+
+export default About;

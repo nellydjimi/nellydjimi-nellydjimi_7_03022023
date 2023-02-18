@@ -2,7 +2,7 @@ import './location.scss'
 import data from '../../data/data.json'
 import Card from '../card/Card'
 
-export default function Location() {
+const Location = ()=> {
     return (
         <main className='location'>
             {data.map(data => {
@@ -18,3 +18,5 @@ export default function Location() {
         </main>
     )
 }
+
+export default Location

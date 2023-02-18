@@ -1,9 +1,11 @@
 import '../banner/Banner.scss'
 
-export default function Banner (){
+const Banner = ()=>{
     return (
         <div className=''>
 
         </div>
     )
 }
+
+export default Banner

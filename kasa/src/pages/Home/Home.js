@@ -5,14 +5,17 @@ import Banner from '../../composants/banner/Banner'
 import Location from '../../composants/location/Location'
 import Footer from '../../composants/footer/Footer'
 
-export default function Home(){
+const Home = () => {
     console.log("accueil kasa")
-    return(
+    return ( 
         <div>
-            <Header />
-            <Banner />
-            <Location />
-            <Footer />
+        <Header />
+        <Banner />
+        <Location />
+        <Footer />
         </div>
+        
     )
 }
+
+export default Home;
