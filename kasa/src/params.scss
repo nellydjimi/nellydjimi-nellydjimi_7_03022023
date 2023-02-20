@@ -3,19 +3,11 @@
     flex-direction: $direction;
     justify-content: $justify;
     align-items: $align;
-  }
+}
 
-$color-primary : #fff;
+$color-primary : #FFFFFF;
 $color-secondary : #FF6060;
 $color-tertiary : #F7F7F7;
-
-*, ::before, ::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat';
-    font-style: normal;
-}
 
 a{
     text-decoration: none;
@@ -27,9 +19,10 @@ li{
 }
 
 body{
-    max-width: 1440px;
+    font-family: "Montserrat", sans-serif;
+    
     padding-top: 40px;
-    margin: 0 auto;
+    margin: auto;
     @media screen and (max-width: 500px) {
         padding-top: 20px;
     }

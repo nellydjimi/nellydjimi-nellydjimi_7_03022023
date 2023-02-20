@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom'
+import './card.scss'
 
 const Card = ({cover, title})=> {
-    console.log(cover)
     return (
         
-        <Link to={'/Logements/:{id}'} className="card_location">
-           <img src={cover}  alt={title}/>
-          <h2>{title}</h2>
+        <Link to={'/Logements/:{id}'} className="card">
+           <img src={cover}  alt='images logements' className='card_image'/>
+          <h2 className='card_image_title'>{title}</h2>
         </Link>
 
     )

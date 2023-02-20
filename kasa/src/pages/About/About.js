@@ -1,6 +1,6 @@
 import Header from '../../composants/header/Header'
+import AboutBackground from '../../images/aboutbackground.png'
 import Footer from '../../composants/footer/Footer'
-import Banner from '../../composants/banner/Banner'
 import Collapse from '../../composants/collapse/Collapse'
 import '../About/about.scss'
 
@@ -33,8 +33,15 @@ return (
    
  <div>
     <Header />
-    <Banner />
-   
+    <section className= 'banner' >
+            <img src={AboutBackground} alt='banner about' className='banner_img'></img>
+		</section>
+        {aboutList.map(data=>{
+            return(    
+            <Collapse key={data.id} title={data.title} content={data.content}/>
+    
+    )
+    })}
     <Footer />
  </div>
 )
