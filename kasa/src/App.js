@@ -1,6 +1,6 @@
 import Error from '../src/pages/Error/Error' ;
 import Home from './pages/Home/Home' ;
-//import Logements from './pages/Logements/Logements' ;
+import Logements from './pages/Logements/Logements' ;
 import About from './pages/About/About' ;
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom' ;
@@ -13,6 +13,9 @@ export default function App() {
         <Routes >
         <Route path = "/"
         element = { < Home /> }/>
+
+<Route path = "/Logements/:id"
+        element = { < Logements /> }/>
         
         <Route path = "/Error"
         element = { < Error /> }/>
