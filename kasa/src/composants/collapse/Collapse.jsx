@@ -7,11 +7,16 @@ export default function Collapse({title, content}){
 
     return(
         <div className='collapse'>
-            <h2 className='collapse_title' onClick={() => updateTurn(turn)}>{title}
+            <h2 className='collapse_title' onClick={() => updateTurn(!turn)}>{title}
             <img src={Arrow} alt='Fleche collapse' className={turn ? 'arrow' : 'arrow_turn'}/>
             </h2>
             <div className={turn ? 'collapse_content' : 'collapse_hiden_content'} >
-               
+            {Array.isArray(content) ? content.map((item, index) => {
+                        return (
+                            <p key={index}>{item}</p>
+                        )
+                    }) : content
+                    }
             </div>
         </div>
     )
