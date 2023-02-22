@@ -11,6 +11,8 @@ const Logements = () =>{
  return(
     <div>
     <Header />
+    <Collapse/>
+    <Collapse/>
     <Footer />
     </div>
  )

@@ -6,25 +6,28 @@
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     margin: 0 auto;
+   
     &_title{
         @include flex(row, space-between, center);
         background-color: $color-secondary;
         color: $color-primary;
         border-radius: 10px;
         font-weight: 500;
-        font-size: clamp(13px, 2vw, 18px);
+        font-size:  18px;
         padding: 10px 15px;
+        margin-bottom : 0;
         cursor: pointer;
         .arrow{
             transition: all 0.2s ease-in-out;
             @media screen and (max-width: 1230px){
-                width: 12px;     
+                width: 15px;     
             }
         }
         .arrow_up{
             transform: rotate(0deg);
         }
-        .arrow_down{
+        .arrow_turn{
+            width: 15px; 
             transform: rotate(180deg);
         }
     }
@@ -38,13 +41,13 @@
         height: auto;
         padding: 10px;
         letter-spacing: 1px;
-        font-size: clamp(12px, 2vw, 16px);
+        font-size:  16px;
         color: $color-secondary;
         transition: visibility 0.5s ease-in-out,
                     opacity 0.5s ease-in-out,
                     height 0.2s ease-in-out;
     }
-    &_content_hidden{
+    &_hiden_content{
         visibility: hidden;
         opacity: 0;
         height: 0;
