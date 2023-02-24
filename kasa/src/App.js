@@ -6,7 +6,7 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom' ;
 
 
-export default function App() {
+export default function App(id) {
 	return(
         
         <BrowserRouter >
@@ -14,7 +14,7 @@ export default function App() {
         <Route path = "/"
         element = { < Home /> }/>
 
-<Route path = "/Logements/:id"
+        <Route path = "/Logements/:id"
         element = { < Logements /> }/>
         
         <Route path = "/Error"
