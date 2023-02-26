@@ -2,13 +2,14 @@
 
 .collapse{
     background-color: $color-tertiary;
-    max-width: 1100px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     margin: 0 auto;
     margin-left: 5rem;
     margin-right: 5rem;
-   
+    &_item{
+       
+    }
     &_title{
         @include flex(row, space-between, center);
         background-color: $color-secondary;
@@ -51,7 +52,7 @@
         visibility: hidden;
         opacity: 0;
         height: 0;
-        
+        margin: 0;
     }
     p{
         margin: auto;
@@ -59,24 +60,15 @@
 }
 
 .logements_collapse{
-    display: flex;
-    justify-content: space-between;
-    gap: 70px;
-    margin: 30px auto;
-    width: 95%;
+   display: flex;
 
     &_content{
-        width: 50%;
-        margin-bottom: 0 ;
+        width: 100%;
     }
     @media screen and (max-width: 650px){
         flex-direction: column;
         gap: 20px;
         margin: 20px auto;
-       
-        &_item{
-            width: 100%;
-            
-        }    
+          
      }
 }

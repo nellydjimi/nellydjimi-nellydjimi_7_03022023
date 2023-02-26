@@ -7,6 +7,7 @@ export default function Collapse({title, content}){
 
     return(
         <div className='collapse'>
+            <div className='collapse_item'>
             <h3 className='collapse_title' onClick={() => reTurn(!turn)}>{title}
             <img src={Arrow} alt='Fleche collapse' className={turn ? 'arrow' : 'arrow_turn'}/>
             </h3>
@@ -17,6 +18,7 @@ export default function Collapse({title, content}){
                         )
                     }) :content
                     }
+            </div>
             </div>
         </div>
     )
