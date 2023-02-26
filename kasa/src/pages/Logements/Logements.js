@@ -20,6 +20,7 @@ const Logements = () => {
    const profilpicture = dataIdFilter[0].host.picture;
    const title = dataIdFilter[0].title;
    const location = dataIdFilter[0].location;
+   const stars = [1, 2, 3, 4, 5];
 
    const [picturesSlide, setPicturesSlide] = useState([]);
    const rating = dataIdFilter[0].rating;
@@ -37,32 +38,30 @@ const Logements = () => {
                <div className='logement_info_content'>
                   <h2>{title}</h2>
                   <p>{location}</p>
-                 
+
                   <ul className='location_info_tags'>{dataIdFilter[0].tags.map((tag) =>
                      <li className='location_info_tags_tag' key={tag}>{tag}</li>)}
                   </ul>
-               </div> 
+               </div>
 
 
                <div className='logement_info_host'>
+                  <div className='logement_info_host_content'>
                   <div className='logement_info_host_name'>
                      <div className='logement_info_host_name_width'>{name}</div>
                   </div>
                   <img className='logement_info_host_profilpicture' src={profilpicture} />
-
-                  <div className='logement_info_host_stars'>
-
                   </div>
-
-
-
-
+                  <div className='logement_info_host_stars'>
+                     {stars.map((data) =>
+                        rating >= data ? (
+                           <img key={data.toString()} className="rating_icon" src={pinkStar} alt="red star" />
+                        ) : (
+                           <img key={data.toString()} className="rating_icon" src={greyStar} alt="grey star" />
+                        )
+                     )}
+                  </div>
                </div>
-
-
-
-
-
             </div>
 
             <div className='logements_collapse'>
