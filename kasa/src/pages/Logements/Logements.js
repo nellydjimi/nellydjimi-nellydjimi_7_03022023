@@ -6,7 +6,7 @@ import Header from '../../composants/header/Header'
 import Footer from '../../composants/footer/Footer'
 import Collapse from '../../composants/collapse/Collapse'
 import Caroussel from '../../composants/caroussel/Caroussel'
-import { useParams } from "react-router-dom"
+import { Navigate, useParams } from "react-router-dom"
 import { useState, useEffect } from 'react'
 
 const Logements = () => {
@@ -22,17 +22,19 @@ const Logements = () => {
    const location = dataIdFilter[0].location;
    const stars = [1, 2, 3, 4, 5];
 
-   const [picturesSlide, setPicturesSlide] = useState([]);
+   const [picturesSlider, setPicturesSlide] = useState([]);
    const rating = dataIdFilter[0].rating;
 
    useEffect(() => {
-
-   }, [dataId]);
+const dataIdFilter = data.filter(data => data.id == dataId);
+setPicturesSlide(dataIdFilter[0].pictures)}, [dataId]);
 
    return (
       <div>
+         { dataId ? (
+            <div>
          <Header />
-         <Caroussel img={picturesSlide} />
+         <Caroussel picturesSlider={picturesSlider} />
          <main className='logement'>
             <div className='logement_info'>
                <div className='logement_info_content'>
@@ -72,8 +74,11 @@ const Logements = () => {
                   <Collapse title={'Équipements'} content={equipments} />
                </div>
             </div>
+            
          </main>
          <Footer />
+         </div>
+         ): <Navigate to="../../pages/Error/Error"/>}
       </div>
    )
 }
