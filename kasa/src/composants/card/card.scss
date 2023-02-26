@@ -4,6 +4,10 @@
     position: relative;
     width: 30%;
     height: 340px;
+
+    @media screen and (max-width: 800px){
+        width: 100%;
+        }
    
     &::after{
         content: '';

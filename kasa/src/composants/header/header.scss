@@ -4,8 +4,8 @@
     @include flex(row, space-between, center);
     height: 68px;
     max-width: 95%;
-    margin-left: 5rem;
-    margin-right: 5rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
     @media screen and (max-width: 900px){
         height: 40px;
     }
@@ -21,7 +21,7 @@
     display: flex;
     gap: 60px;
     color: $color-secondary;
-    font-size: 24px;
+    font-size: clamp(12px,2.5vw,24px);
     font-weight: 500;
     @media screen and (max-width: 700px){
         gap: 20px;

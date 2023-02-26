@@ -11,4 +11,7 @@
     &_right{
         color: $color-primary;
     }
+    @media screen and (max-width: 800px){
+        margin-top: 5rem;
+    }
 }

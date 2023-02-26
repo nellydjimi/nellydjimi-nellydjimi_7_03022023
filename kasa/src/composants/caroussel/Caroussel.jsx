@@ -1,19 +1,20 @@
 import ArrowLeft from '../../images/arrow_left.png'
 import ArrowRight from '../../images/arrow_right.png'
 import React, { useState } from 'react';
+import './caroussel.scss'
 
 export default function Caroussel({ picturesSlider }) {
     const [slideshow, updateSlideshow] = useState(0);
 
     const nextSlide = () => {
         updateSlideshow(slideshow + 1)
-        if (slideshow == picturesSlider.lenght - 1)
+        if (slideshow === picturesSlider.lenght - 1)
             updateSlideshow(0)
     }
 
     const previousSlide = () => {
         updateSlideshow(slideshow - 1)
-        if (slideshow == 0)
+        if (slideshow === 0)
             updateSlideshow(-1)
     }
 
