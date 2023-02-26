@@ -32,25 +32,27 @@ const Logements = () => {
       <div>
          <Header />
          <Caroussel img={picturesSlide} />
-         <main>
-            <div className='logement'>
-               <div className='logement_info'>
+         <main className='logement'>
+            <div className='logement_info'>
+               <div className='logement_info_content'>
                   <h2>{title}</h2>
                   <p>{location}</p>
-                  <ul>{dataIdFilter[0].tags.map((tag) =>
-                     <li className='location_header_tags_tag' key={tag}>{tag}</li>)}
+                 
+                  <ul className='location_info_tags'>{dataIdFilter[0].tags.map((tag) =>
+                     <li className='location_info_tags_tag' key={tag}>{tag}</li>)}
                   </ul>
-               </div>
+               </div> 
 
 
-               <div className='logement_info'>
-<div>
-  <div>{name}</div>
-  <img  src={profilpicture} />
-</div>
-<div>
-   
-</div>
+               <div className='logement_info_host'>
+                  <div className='logement_info_host_name'>
+                     <div className='logement_info_host_name_width'>{name}</div>
+                  </div>
+                  <img className='logement_info_host_profilpicture' src={profilpicture} />
+
+                  <div className='logement_info_host_stars'>
+
+                  </div>
 
 
 
