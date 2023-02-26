@@ -6,29 +6,74 @@ import Header from '../../composants/header/Header'
 import Footer from '../../composants/footer/Footer'
 import Collapse from '../../composants/collapse/Collapse'
 import Caroussel from '../../composants/caroussel/Caroussel'
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom"
+import { useState, useEffect } from 'react'
 
 const Logements = () => {
 
-const dataId = useParams('id').id;
-const dataIdFilter = data.filter(data => data.id == dataId) ;
-const description = dataIdFilter[0].description ;
-const equipments = dataIdFilter[0].equipments ;
+
+   const dataId = useParams('id').id;
+   const dataIdFilter = data.filter(data => data.id == dataId);
+   const description = dataIdFilter[0].description;
+   const equipments = dataIdFilter[0].equipments;
+   const name = dataIdFilter[0].host.name;
+   const profilpicture = dataIdFilter[0].host.picture;
+   const title = dataIdFilter[0].title;
+   const location = dataIdFilter[0].location;
+
+   const [picturesSlide, setPicturesSlide] = useState([]);
+   const rating = dataIdFilter[0].rating;
+
+   useEffect(() => {
+
+   }, [dataId]);
+
    return (
       <div>
          <Header />
-      
+         <Caroussel img={picturesSlide} />
+         <main>
+            <div className='logement'>
+               <div className='logement_info'>
+                  <h2>{title}</h2>
+                  <p>{location}</p>
+                  <ul>{dataIdFilter[0].tags.map((tag) =>
+                     <li className='location_header_tags_tag' key={tag}>{tag}</li>)}
+                  </ul>
+               </div>
+
+
+               <div className='logement_info'>
+<div>
+  <div>{name}</div>
+  <img  src={profilpicture} />
+</div>
+<div>
+   
+</div>
+
+
+
+
+               </div>
+
+
+
+
+
+            </div>
+
             <div className='logements_collapse'>
                <div className='logements_collapse_content'>
-                  <Collapse title={'Description'} content={description } />
+                  <Collapse title={'Description'} content={description} />
                </div>
                <div className='logements_collapse_content'>
                   <Collapse title={'Équipements'} content={equipments} />
                </div>
             </div>
-         
-    <Footer />
-    </div>
+         </main>
+         <Footer />
+      </div>
    )
 }
 
