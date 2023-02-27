@@ -25,10 +25,10 @@ export default function Caroussel({ picturesSlider }) {
                 <>
                     <div>
 
-                        <img className='caroussel_arrow_left'
+                        <img className='caroussel_arrow caroussel_arrow_left'
                             src={ArrowLeft} alt="arrow left " onClick={previousSlide} />
                         <div className='caroussel_slide'>{slideshow + 1} / {picturesSlider.length}</div>
-                        <img className='caroussel_arrow_right'
+                        <img className='caroussel_arrow caroussel_arrow_right'
                             src={ArrowRight} alt="arrow right " onClick={nextSlide} />
 
                     </div>

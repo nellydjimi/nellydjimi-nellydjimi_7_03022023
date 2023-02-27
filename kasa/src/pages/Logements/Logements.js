@@ -9,10 +9,13 @@ import Caroussel from '../../composants/caroussel/Caroussel'
 import { Navigate, useParams } from "react-router-dom"
 import { useState, useEffect } from 'react'
 
-const Logements = () => {
 
+
+const Logements = () => {
+   
    const dataId = useParams('id').id;
    const dataIdFilter = data.filter(data => data.id === dataId);
+   const dataIdLogement = data.find(data => data.id === dataId) ;
    const description = dataIdFilter[0].description;
    const equipments = dataIdFilter[0].equipments;
    const name = dataIdFilter[0].host.name;
@@ -23,6 +26,8 @@ const Logements = () => {
    const rating = dataIdFilter[0].rating;
    const [picturesSlider, setPicturesSlide] = useState([]);
 
+
+
    useEffect(() => {
       const dataIdFilter = data.filter(data => data.id === dataId);
       setPicturesSlide(dataIdFilter[0].pictures)
@@ -30,7 +35,7 @@ const Logements = () => {
 
    return (
       <div>
-         {dataId ? (
+         {dataIdLogement? ( 
             <div>
                <Header />
                <Caroussel picturesSlider={picturesSlider} />
@@ -77,7 +82,7 @@ const Logements = () => {
                </main>
                <Footer />
             </div>
-         ) : <Navigate to="../../pages/Error/Error" />}
+         ): <Navigate replace to='/Error'/>}
       </div>
    )
 }
