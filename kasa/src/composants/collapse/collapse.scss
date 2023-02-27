@@ -5,11 +5,9 @@
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     margin: 0 auto;
-    margin-left: 5rem;
-    margin-right: 5rem;
-    &_item{
-       
-    }
+    margin-left: 1rem;
+    margin-right: 1rem;
+    
     &_title{
         @include flex(row, space-between, center);
         background-color: $color-secondary;
@@ -61,7 +59,8 @@
 
 .logements_collapse{
    display: flex;
-
+   margin-left: 1rem;
+   margin-right: 1rem;
     &_content{
         width: 100%;
     }

@@ -3,10 +3,14 @@
 
 .logement {
     &_info {
-        @include flex(row, space-between, flex-start);
+        display: flex;
         color: $color-secondary;
         width: 95%;
         margin: 0 auto;
+        justify-content: space-between;
+        @media screen and (max-width: 810px){
+            flex-direction: column;
+        }
     }
 
     &_content {
@@ -20,6 +24,9 @@
     ul {
         display: flex;
         padding-left: 0;
+        @media screen and (max-width: 810px){
+            
+        }
     }
 
     li {
@@ -31,6 +38,11 @@
         border: none;
         color: $color-primary;
         background-color: $color-secondary;
+        @media screen and (max-width: 810px){
+            padding: 7px;
+            font-size: 15px;
+            margin-right: 5px;
+        }
     }
 
     &_info_host_content{
@@ -44,6 +56,10 @@
         display: flex;
         flex-direction: column;
         gap: 5px;
+        @media screen and (max-width: 810px){
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        }
     }
 
     &_info_host_name {
@@ -70,6 +86,11 @@
         display: flex;
          gap: 10px;
          margin-top: 2rem;
+         @media screen and (max-width: 810px){
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            gap: 0px;
+         }
     }
 
 }

@@ -14,12 +14,18 @@
         font-size: 288px;
         font-weight: 700;
         margin: auto;
+        @media screen and (max-width: 810px){
+            font-size: 150px;
+        }
     }
     &_content{
         text-align: center;
         font-weight: 500;
         font-size: 36px;
         margin: auto;
+        @media screen and (max-width: 810px){
+            font-size: 20px;
+        }
     }
     &_home{
         text-align: center;
@@ -28,7 +34,8 @@
         margin-top: 8rem;
         text-decoration: underline;
         @media screen and (max-width: 500px){
-        @include flex(center)
+        @include flex(center);
+        font-size: 15px;
         }
     }
     }

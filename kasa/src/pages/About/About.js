@@ -38,8 +38,9 @@ return (
 		</section>
         {aboutList.map(data=>{
             return(    
+                <div className='div_collapse'>
             <Collapse key={data.id} title={data.title} content={data.content}/>
-    
+    </div>
     )
     })}
     <Footer />
