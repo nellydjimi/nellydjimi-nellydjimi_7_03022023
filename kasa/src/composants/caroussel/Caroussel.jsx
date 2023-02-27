@@ -13,6 +13,7 @@ export default function Caroussel({ picturesSlider }) {
         } else {
             updateSlideshow(slideshow + 1)
         }
+        return(updateSlideshow);
     }
 
     const previousSlide = () => {
@@ -22,6 +23,7 @@ export default function Caroussel({ picturesSlider }) {
         else {
             updateSlideshow(slideshow - 1)
         }
+        return(updateSlideshow);
     }
 
     return (
@@ -29,7 +31,7 @@ export default function Caroussel({ picturesSlider }) {
             {picturesSlider.length > 1 &&
                 <>
                     <img className='caroussel_arrow caroussel_arrow_right' src={ArrowRight} alt="show next slider" onClick={nextSlide} />
-                    <img className='caroussel_arrow caroussel_arrow_left' src={ArrowLeft} alt="show previous slider" onClick={previousSlide} />
+                     <img className='caroussel_arrow caroussel_arrow_left' src={ArrowLeft} alt="show previous slider" onClick={previousSlide} />
                 </>
             }
         </section>
