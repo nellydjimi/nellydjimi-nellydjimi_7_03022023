@@ -1,7 +1,8 @@
 import ArrowLeft from '../../images/arrow_left.png'
 import ArrowRight from '../../images/arrow_right.png'
-import React, { useState } from 'react';
+import { useState } from 'react'
 import './caroussel.scss'
+
 
 export default function Caroussel({ picturesSlider }) {
     const [slideshow, updateSlideshow] = useState(0);
@@ -15,20 +16,24 @@ export default function Caroussel({ picturesSlider }) {
     const previousSlide = () => {
         updateSlideshow(slideshow - 1)
         if (slideshow === 0)
-            updateSlideshow(-1)
+            updateSlideshow(picturesSlider.lenght - 1)
     }
 
     return (
-        <div style={{backgroundImage : `url(${picturesSlider[slideshow]})`}} className='caroussel'>
-{picturesSlider.lenght > 1 &&
-<>
-            <img className='caroussel_arrow caroussel_arrow_right'
-                src={ArrowRight} alt="arrow right next slide" onClick={nextSlide} />
-            <img className='caroussel_arrow caroussel_arrow_left'
-                src={ArrowLeft} alt="arrow left previous slide" onClick={previousSlide} />
-                <div className='caroussel_slide'>{slideshow + 1} / {picturesSlider.length}</div>
-</>
-}
+        <div style={{ backgroundImage: `url(${picturesSlider[slideshow]})` }} className='caroussel'>
+            {picturesSlider.lenght !== 1 &&
+                <>
+                    <div>
+
+                        <img className='caroussel_arrow_left'
+                            src={ArrowLeft} alt="arrow left " onClick={previousSlide} />
+                        <div className='caroussel_slide'>{slideshow + 1} / {picturesSlider.length}</div>
+                        <img className='caroussel_arrow_right'
+                            src={ArrowRight} alt="arrow right " onClick={nextSlide} />
+
+                    </div>
+                </>
+            }
         </div>
     )
 }
