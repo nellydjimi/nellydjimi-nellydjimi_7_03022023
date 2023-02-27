@@ -20,20 +20,23 @@ export default function Caroussel({ picturesSlider }) {
     }
 
     return (
-        <div style={{ backgroundImage: `url(${picturesSlider[slideshow]})` }} className='caroussel'>
-            {picturesSlider.lenght !== 1 &&
-                <>
-                    <div>
-
-                        <img className='caroussel_arrow caroussel_arrow_left'
-                            src={ArrowLeft} alt="arrow left " onClick={previousSlide} />
-                        <div className='caroussel_slide'>{slideshow + 1} / {picturesSlider.length}</div>
-                        <img className='caroussel_arrow caroussel_arrow_right'
-                            src={ArrowRight} alt="arrow right " onClick={nextSlide} />
-
-                    </div>
-                </>
-            }
-        </div>
+        <section style={{backgroundImage : `url(${picturesSlider[slideshow]})`}} className='caroussel'>
+        {picturesSlider.length > 1 && 
+            <>
+                <img 
+                    className='caroussel_arrow caroussel_arrow_right' 
+                    src={ArrowRight} 
+                    alt="show next slider" 
+                    onClick={nextSlide}
+                />
+                <img 
+                    className='caroussel_arrow caroussel_arrow_left' 
+                    src={ArrowLeft} 
+                    alt="show previous slider" 
+                    onClick={previousSlide}
+                />
+            </>
+        } 
+    </section>
     )
 }
