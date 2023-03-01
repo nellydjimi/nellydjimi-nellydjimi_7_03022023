@@ -28,9 +28,17 @@
     }
     &_item{
         &_active{
+            text-decoration: none;
             position: relative;
             color: $color-secondary;
             text-decoration: underline solid $color-secondary;  
         }
     }
+    a{
+        text-decoration: none;
+    }
+    &:hover,
+		&:focus {
+			text-decoration-line: underline;
+		}
 }

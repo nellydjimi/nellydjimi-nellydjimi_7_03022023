@@ -5,7 +5,7 @@ import Card from '../card/Card'
 const Location = ()=> {
     return (
         <main className='location'>
-            {data.map(data => {
+            {data.map((data) => {
                 return (
                     <Card
                         key={data.id}

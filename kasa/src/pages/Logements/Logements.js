@@ -10,12 +10,13 @@ import { Navigate, useParams } from "react-router-dom"
 import { useState, useEffect } from 'react'
 
 
+ 
 
-const Logements = () => {
+export default function Logements(id) {
    
-   const dataId = useParams('id').id;
+   const dataId = useParams().id;
    const dataIdFilter = data.filter(data => data.id === dataId);
-   const dataIdLogement = data.find(data => data.id === dataId) ;
+   const navigateId =(Logements/{id})  ;
    const description = dataIdFilter[0].description;
    const equipments = dataIdFilter[0].equipments;
    const name = dataIdFilter[0].host.name;
@@ -25,17 +26,20 @@ const Logements = () => {
    const stars = [1, 2, 3, 4, 5];
    const rating = dataIdFilter[0].rating;
    const [picturesSlider, setPicturesSlide] = useState([]);
-
-
-
+   
    useEffect(() => {
       const dataIdFilter = data.filter(data => data.id === dataId);
       setPicturesSlide(dataIdFilter[0].pictures)
    }, [dataId]);
 
+ 
+   
+   
    return (
+      <>
+            {
+                navigateId ? (
       <div>
-         {dataIdLogement? ( 
             <div>
                <Header />
                <Caroussel picturesSlider={picturesSlider} />
@@ -82,9 +86,15 @@ const Logements = () => {
                </main>
                <Footer />
             </div>
-         ): <Navigate replace to='/Error'/>}
+      
       </div>
-   )
+        ) : <Navigate replace to="/error"/>
+      }
+  </>
+   ) 
+
 }
 
-export default Logements;
+
+
+
