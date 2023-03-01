@@ -1,6 +1,5 @@
 import '../Home/home.scss'
 import React from 'react'
-import Card from '../../composants/card/Card'
 import Header from '../../composants/header/Header'
 import HomeBackground from '../../images/homebackground.png'
 import Location from '../../composants/location/Location'

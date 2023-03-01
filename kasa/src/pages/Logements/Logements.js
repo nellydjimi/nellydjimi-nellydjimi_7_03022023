@@ -6,17 +6,14 @@ import Header from '../../composants/header/Header'
 import Footer from '../../composants/footer/Footer'
 import Collapse from '../../composants/collapse/Collapse'
 import Caroussel from '../../composants/caroussel/Caroussel'
-import { Navigate, useParams } from "react-router-dom"
+import { Navigate, useParams} from "react-router-dom"
 import { useState, useEffect } from 'react'
 
-
- 
-
-export default function Logements(id) {
+export default function Logements() {
    
    const dataId = useParams().id;
    const dataIdFilter = data.filter(data => data.id === dataId);
-   const navigateId =(Logements/{id})  ;
+   const navigateId = data.find(data => data.id === dataId.id) ;
    const description = dataIdFilter[0].description;
    const equipments = dataIdFilter[0].equipments;
    const name = dataIdFilter[0].host.name;
@@ -26,74 +23,76 @@ export default function Logements(id) {
    const stars = [1, 2, 3, 4, 5];
    const rating = dataIdFilter[0].rating;
    const [picturesSlider, setPicturesSlide] = useState([]);
-   
+  
+
    useEffect(() => {
       const dataIdFilter = data.filter(data => data.id === dataId);
       setPicturesSlide(dataIdFilter[0].pictures)
    }, [dataId]);
 
- 
-   
-   
-   return (
-      <>
+         return (
+            <>
             {
-                navigateId ? (
-      <div>
+               navigateId? (
             <div>
-               <Header />
-               <Caroussel picturesSlider={picturesSlider} />
-               <main className='logement'>
-                  <div className='logement_info'>
-                     <div className='logement_info_content'>
-                        <h2>{title}</h2>
-                        <p>{location}</p>
-
-                        <ul className='location_info_tags'>{dataIdFilter[0].tags.map((tag) =>
-                           <li className='location_info_tags_tag' key={tag}>{tag}</li>)}
-                        </ul>
-                     </div>
-
-
-               <div className='logement_info_host'>
-                  <div className='logement_info_host_content'>
-                  <div className='logement_info_host_name'>
-                     <div className='logement_info_host_name_width'>{name}</div>
-                  </div>
-                  <img className='logement_info_host_profilpicture' src={profilpicture} alt='profil host'/>
-                  </div>
-                  <div className='logement_info_host_stars'>
-                     {stars.map((data) =>
-                        rating >= data ? (
-                           <img key={data.toString()} className="rating_icon" src={pinkStar} alt="red star" />
-                        ) : (
-                           <img key={data.toString()} className="rating_icon" src={greyStar} alt="grey star" />
-                        )
-                     )}
-                  </div>
-               </div>
-            </div>
-
-                  <div className='logements_collapse'>
-                     <div className='logements_collapse_content'>
-                        <Collapse title={'Description'} content={description} />
-                     </div>
-                     <div className='logements_collapse_content'>
-                        <Collapse title={'Équipements'} content={equipments} />
-                     </div>
-                  </div>
-
-               </main>
-               <Footer />
-            </div>
+                  <div>
+                     <Header />
+                     <Caroussel picturesSlider={picturesSlider} />
+                     <main className='logement'>
+                        <div className='logement_info'>
+                           <div className='logement_info_content'>
+                              <h2>{title}</h2>
+                              <p>{location}</p>
       
-      </div>
-        ) : <Navigate replace to="/error"/>
-      }
-  </>
-   ) 
+                              <ul className='location_info_tags'>{dataIdFilter[0].tags.map((tag) =>
+                                 <li className='location_info_tags_tag' key={tag}>{tag}</li>)}
+                              </ul>
+                           </div>
+      
+      
+                     <div className='logement_info_host'>
+                        <div className='logement_info_host_content'>
+                        <div className='logement_info_host_name'>
+                           <div className='logement_info_host_name_width'>{name}</div>
+                        </div>
+                        <img className='logement_info_host_profilpicture' src={profilpicture} alt='profil host'/>
+                        </div>
+                        <div className='logement_info_host_stars'>
+                           {stars.map((data) =>
+                              rating >= data ? (
+                                 <img key={data.toString()} className="rating_icon" src={pinkStar} alt="red star" />
+                              ) : (
+                                 <img key={data.toString()} className="rating_icon" src={greyStar} alt="grey star" />
+                              )
+                           )}
+                        </div>
+                     </div>
+                  </div>
+      
+                        <div className='logements_collapse'>
+                           <div className='logements_collapse_content'>
+                              <Collapse title={'Description'} content={description} />
+                           </div>
+                           <div className='logements_collapse_content'>
+                              <Collapse title={'Équipements'} content={equipments} />
+                           </div>
+                        </div>
+      
+                     </main>
+                     <Footer />
+                  </div>
+            
+            </div>
+               ) : <Navigate to="/error" />
+            }
+        </>
+         ) 
+      
+   }
+   
+   
 
-}
+
 
 
 
