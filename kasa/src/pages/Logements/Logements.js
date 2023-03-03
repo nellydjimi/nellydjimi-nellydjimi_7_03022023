@@ -13,7 +13,6 @@ export default function Logements() {
    
    const dataId = useParams().id;
    const dataIdFilter = data.filter(data => data.id === dataId);
-   const navigateId = data.find(data => data.id === dataId.id) ;
    const description = dataIdFilter[0].description;
    const equipments = dataIdFilter[0].equipments;
    const name = dataIdFilter[0].host.name;
@@ -22,9 +21,8 @@ export default function Logements() {
    const location = dataIdFilter[0].location;
    const stars = [1, 2, 3, 4, 5];
    const rating = dataIdFilter[0].rating;
-   const [picturesSlider, setPicturesSlide] = useState([]);
-  
 
+   const [picturesSlider, setPicturesSlide] = useState([]);
    useEffect(() => {
       const dataIdFilter = data.filter(data => data.id === dataId);
       setPicturesSlide(dataIdFilter[0].pictures)
@@ -33,7 +31,7 @@ export default function Logements() {
          return (
             <>
             {
-               navigateId? (
+               dataIdFilter? (
             <div>
                   <div>
                      <Header />

@@ -6,8 +6,6 @@ import Location from '../../composants/location/Location'
 import Footer from '../../composants/footer/Footer'
 
 export default function Home() {
- 
-
 
     return ( 
         <div>
@@ -18,8 +16,7 @@ export default function Home() {
 		</section>
         <Location/>
         <Footer />
-        </div>
-        
+        </div> 
     )
 }
 
