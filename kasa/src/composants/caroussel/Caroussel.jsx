@@ -22,8 +22,10 @@ export default function Caroussel({ picturesSlider }) {
                 <>
                     <img className='caroussel_arrow caroussel_arrow_right' src={ArrowRight} alt="show next slider" onClick={nextSlide} />
                      <img className='caroussel_arrow caroussel_arrow_left' src={ArrowLeft} alt="show previous slider" onClick={previousSlide} />
+                     <p className='numberslide'>{slideshow + 1} / {picturesSlider.length}</p>
                 </>
             }
+            <p></p>
         </section>
     )
 }

@@ -10,10 +10,10 @@ const Header = ()=> {
             </Link>
             <nav className='nav'>
                 <ul className='nav_list'>
-                    <li className='nav_list_item_active '>
+                    <li className='nav_list_item '>
                         <Link to='/'> Accueil </Link>
                     </li>
-                    <li className='nav_list_item_active '>
+                    <li className='nav_list_item '>
                         <Link to='/About'> A propos </Link>
                     </li>
                 </ul>

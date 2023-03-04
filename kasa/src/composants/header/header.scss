@@ -36,9 +36,10 @@
     }
     a{
         text-decoration: none;
-    }
-    &:hover,
-		&:focus {
+        &:hover,
+		&:focus{
 			text-decoration-line: underline;
 		}
+    }
+    
 }
