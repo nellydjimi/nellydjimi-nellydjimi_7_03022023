@@ -6,32 +6,38 @@ import Header from '../../composants/header/Header'
 import Footer from '../../composants/footer/Footer'
 import Collapse from '../../composants/collapse/Collapse'
 import Caroussel from '../../composants/caroussel/Caroussel'
-import { Navigate, useParams} from "react-router-dom"
+import { useNavigate, useParams} from "react-router-dom"
 import { useState, useEffect } from 'react'
 
 export default function Logements() {
    
    const dataId = useParams().id;
-   const dataIdFilter = data.filter(data => data.id === dataId);
-   const description = dataIdFilter[0].description;
-   const equipments = dataIdFilter[0].equipments;
-   const name = dataIdFilter[0].host.name;
-   const profilpicture = dataIdFilter[0].host.picture;
-   const title = dataIdFilter[0].title;
-   const location = dataIdFilter[0].location;
+   const navigate = useNavigate();
+   const [location, setLocaion] = useState(null)
    const stars = [1, 2, 3, 4, 5];
-   const rating = dataIdFilter[0].rating;
-
    const [picturesSlider, setPicturesSlide] = useState([]);
+
    useEffect(() => {
-      const dataIdFilter = data.filter(data => data.id === dataId);
-      setPicturesSlide(dataIdFilter[0].pictures)
-   }, [dataId]);
+      let item = data.filter(data => data.id === dataId)[0]; // on recherche le logement
+      if (item !== undefined) {
+          /*
+              Si le logement est trouvé alors on met à jour le state
+           */
+          setLocaion(item)
+          setPicturesSlide(item.pictures)
+      } else {
+          /*
+              Si le logement n'est pas trouver alors on demande à naviguer vers une page qui n'existe pas,
+               donc on se retrouve sur la page 404
+           */
+          navigate("/error")
+      }
+  }, [dataId]);
 
          return (
             <>
             {
-               dataIdFilter? (
+               location && (
             <div>
                   <div>
                      <Header />
@@ -39,10 +45,10 @@ export default function Logements() {
                      <main className='logement'>
                         <div className='logement_info'>
                            <div className='logement_info_content'>
-                              <h2>{title}</h2>
-                              <p>{location}</p>
+                              <h2>{location.title}</h2>
+                              <p>{location.location}</p>
       
-                              <ul className='location_info_tags'>{dataIdFilter[0].tags.map((tag) =>
+                              <ul className='location_info_tags'>{location.tags.map((tag) =>
                                  <li className='location_info_tags_tag' key={tag}>{tag}</li>)}
                               </ul>
                            </div>
@@ -51,13 +57,13 @@ export default function Logements() {
                      <div className='logement_info_host'>
                         <div className='logement_info_host_content'>
                         <div className='logement_info_host_name'>
-                           <div className='logement_info_host_name_width'>{name}</div>
+                           <div className='logement_info_host_name_width'>{location.name}</div>
                         </div>
-                        <img className='logement_info_host_profilpicture' src={profilpicture} alt='profil host'/>
+                        <img className='logement_info_host_profilpicture' src={location.profilpicture} alt='profil host'/>
                         </div>
                         <div className='logement_info_host_stars'>
                            {stars.map((data) =>
-                              rating >= data ? (
+                              location.rating >= data ? (
                                  <img key={data.toString()} className="rating_icon" src={pinkStar} alt="red star" />
                               ) : (
                                  <img key={data.toString()} className="rating_icon" src={greyStar} alt="grey star" />
@@ -69,10 +75,10 @@ export default function Logements() {
       
                         <div className='logements_collapse'>
                            <div className='logements_collapse_content'>
-                              <Collapse title={'Description'} content={description} />
+                              <Collapse title={'Description'} content={location.description} />
                            </div>
                            <div className='logements_collapse_content'>
-                              <Collapse title={'Équipements'} content={equipments} />
+                              <Collapse title={'Équipements'} content={location.equipments} />
                            </div>
                         </div>
       
@@ -81,17 +87,9 @@ export default function Logements() {
                   </div>
             
             </div>
-               ) : <Navigate to="/error" />
+               ) 
             }
         </>
          ) 
       
    }
-   
-   
-
-
-
-
-
-

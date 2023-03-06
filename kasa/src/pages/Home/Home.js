@@ -7,16 +7,16 @@ import Footer from '../../composants/footer/Footer'
 
 export default function Home() {
 
-    return ( 
+    return (
         <div>
-        <Header />
-        <section className= 'banner' >
-            <img src={HomeBackground} alt='Imagebanner' className='banner_img'></img>
-			<p className='banner_img_title'>Chez vous, partout et ailleurs</p>
-		</section>
-        <Location/>
-        <Footer />
-        </div> 
+            <Header />
+            <section className='banner' >
+                <img src={HomeBackground} alt='Imagebanner' className='banner_img'></img>
+                <p className='banner_img_title'>Chez vous, partout et ailleurs</p>
+            </section>
+            <Location />
+            <Footer />
+        </div>
     )
 }
 
